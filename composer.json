@@ -1,0 +1,16 @@
+{
+    "name" : "fgsl/eyedatagrid",
+    "type": "data grid",
+    "description": "Display data from a database in a sortable table",
+    "keywords": ["data","grid","table"],
+    "homepage": "https://github.com/fgsl/eyedatagrid",
+    "license": "BSD-2-Clause",
+    "autoload": {
+        "psr-4": {
+            "Fgsl\\Eyedatagrid\\": "src/Fgsl/Eyedatagrid"
+        }
+    },
+    "require": {
+        "php": "^5.6 || ^7.0"
+    }
+}
