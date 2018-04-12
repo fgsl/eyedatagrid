@@ -855,13 +855,14 @@ class EyeDataGrid
      *
      * @param string $responce Responce script
      */
-    public static function useAjaxTable($responce = '')
+    public function useAjaxTable($responce = '')
     {
-        self::printJavascript();
+        $this->printJavascript();
 
         // If no responce script is set, use the current script
-        if (empty($responce))
+        if (empty($responce)){
             $responce = $_SERVER['PHP_SELF'];
+        }
 
         echo "<script type=\"text/javascript\">\n";
         echo "var xmlHttp\n";
@@ -886,12 +887,9 @@ class EyeDataGrid
     */
     public function printJavascript()
     {
-        if ($this)
-        {
-            $page = $this->page;
-            $order = (($this->order) ? implode(':', $this->order) : '');
-            $filter = (($this->filter) ? implode(':', $this->filter) : '');
-        }
+        $page = $this->page;
+        $order = (($this->order) ? implode(':', $this->order) : '');
+        $filter = (($this->filter) ? implode(':', $this->filter) : '');
 
         echo "<script type=\"text/javascript\">\n";
         echo "var params = ''; var tblpage = '" . $page . "'; var tblorder = '" . $order . "'; var tblfilter = '" . $filter . "';\n";
