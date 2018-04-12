@@ -45,7 +45,6 @@ class EyeDataGrid
     private $select_where = ''; // Where clause
     private $select_table = ''; // Table to read
     private $image_path = ''; // Path to images
-    private static $instance = false;
 
 
      // Filename of required images
@@ -117,8 +116,6 @@ class EyeDataGrid
             list($column, $value) = $this->parseInputCond($filter);
             $this->setFilter($column, $value);
         }
-
-        self::$instance = true;
     }
 
     /**
@@ -889,7 +886,7 @@ class EyeDataGrid
     */
     public function printJavascript()
     {
-        if (self::$instance)
+        if ($this)
         {
             $page = $this->page;
             $order = (($this->order) ? implode(':', $this->order) : '');
