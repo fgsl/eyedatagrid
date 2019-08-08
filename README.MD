@@ -18,7 +18,7 @@ According him, they're great for displaying all kinds of data.
 He argues that developed his datagrid to suit all his needs and more.
 
 
-##Features
+## Features
 
 * Filtering and searching capabilities
 * Ability to change column headers
