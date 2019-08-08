@@ -104,8 +104,10 @@ Format a date.
 
 e.g:
 
-`$db->setColumnType('Birthday', EyeDataGrid::TYPE_DATE, "M d, Y", true); // Converts to a timestamp and then to the formatted date
-$db->setColumnType('Birthday', EyeDataGrid::TYPE_DATE, "M d, Y"); // Converts formatted date from a timestamp`
+```php
+$db->setColumnType('Birthday', EyeDataGrid::TYPE_DATE, "M d, Y", true); // Converts to a timestamp and then to the formatted date
+$db->setColumnType('Birthday', EyeDataGrid::TYPE_DATE, "M d, Y"); // Converts formatted date from a timestamp
+```
 
 **TYPE_IMAGE**
 
@@ -113,13 +115,17 @@ Changes a column's values to a image.
 
 e.g: 
 
-`$db->setColumnType('Photo', EyeDataGrid::TYPE_IMAGE, "/images/photos/%LastName%.png");`
+```php
+$db->setColumnType('Photo', EyeDataGrid::TYPE_IMAGE, "/images/photos/%LastName%.png");
+```
 
 **TYPE_ARRAY**
 
 Maps a value to a key in an array
 
-`$db->setColumnType('Gender', EyeDataGrid::TYPE_ARRAY, array('f' => 'Female', 'm' => 'Male'));`
+```php
+$db->setColumnType('Gender', EyeDataGrid::TYPE_ARRAY, array('f' => 'Female', 'm' => 'Male'));
+```
 
 **TYPE_CHECK**
 
@@ -127,8 +133,10 @@ Converts a cell to a checkmark when the value is "1", "true", "yes" or value mat
 
 e.g:
 
-`$db->setColumnType('Single?', EyeDataGrid::TYPE_CHECK);
-$db->setColumnType('Single?', EyeDataGrid::TYPE_CHECK, 'legs');`
+```php
+$db->setColumnType('Single?', EyeDataGrid::TYPE_CHECK);
+$db->setColumnType('Single?', EyeDataGrid::TYPE_CHECK, 'legs');
+```
 
 **TYPE_PERCENT**
 
@@ -136,9 +144,11 @@ Converts a value to a percent as a whole number.
 
 e.g:
 
-`$db->setColumnType('Score', EyeDataGrid::TYPE_PERCENT); // Value is already in percent
+```php
+$db->setColumnType('Score', EyeDataGrid::TYPE_PERCENT); // Value is already in percent
 $db->setColumnType('Score', EyeDataGrid::TYPE_PERCENT, true); // Value is converted from decimal format when 3rd param is true
-$db->setColumnType('Score', EyeDataGrid::TYPE_PERCENT, true, array('Back' => 'red', 'Fore' => 'black')); // Adds bars whose width represents the percent, colors are specified as 'Back' and 'Fore'`
+$db->setColumnType('Score', EyeDataGrid::TYPE_PERCENT, true, array('Back' => 'red', 'Fore' => 'black')); // Adds bars whose width represents the percent, colors are specified as 'Back' and 'Fore'
+```
 
 **TYPE_DOLLAR**
 
@@ -146,7 +156,9 @@ Converts a value to the a currency. Always rounded to 2 decimal places.
 
 e.g: 
 
-`$db->setColumnType('Price', EyeDataGrid::TYPE_DOLLAR);`
+```php
+$db->setColumnType('Price', EyeDataGrid::TYPE_DOLLAR);`
+```
 
 **TYPE_CUSTOM**
 
@@ -154,7 +166,9 @@ Convert value to a custom value.
 
 e.g:
 
-` $db->setColumnType('School', EyeDataGrid::TYPE_CUSTOM, 'I go to %CollegeName% in %City%, %Province%'); // Converts a cell to "I go to..". Placeholders are replaced with the value in that row's column`
+```php
+$db->setColumnType('School', EyeDataGrid::TYPE_CUSTOM, 'I go to %CollegeName% in %City%, %Province%'); // Converts a cell to "I go to..". Placeholders are replaced with the value in that row's column
+```
 
 **TYPE_FUNCTION**
 
@@ -162,6 +176,8 @@ Sends a value (or values) to a user specified function.
 
 e.g:
 
-`$db->setColumnType('Password', EyeDataGrid::TYPE_FUNCTION, 'md5', '%Password%'); // Value is sent to the md5 function and return is printed in the cell
+```php
+$db->setColumnType('Password', EyeDataGrid::TYPE_FUNCTION, 'md5', '%Password%'); // Value is sent to the md5 function and return is printed in the cell
 $db->setColumnType('Password', EyeDataGrid::TYPE_FUNCTION, 'make_hash', '%Password%'); // Value is sent to the make_hash user function and return is printed in the cell
-$db->setColumnType('Password', EyeDataGrid::TYPE_FUNCTION, 'generate_key', array('%Username%', '%Password%')); // To pass multiple params to the user function use an array`
+$db->setColumnType('Password', EyeDataGrid::TYPE_FUNCTION, 'generate_key', array('%Username%', '%Password%')); // To pass multiple params to the user function use an array
+```
