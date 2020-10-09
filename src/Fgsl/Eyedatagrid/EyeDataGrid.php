@@ -511,17 +511,18 @@ class EyeDataGrid
 
             // Add filters if allowed and only if the column type is not "special"
             if ($this->allow_filters and
-                !in_array($this->type[$t][0], array(
-                                    self::TYPE_ARRAY,
-                                    self::TYPE_IMAGE,
-                                    self::TYPE_FUNCTION,
-                                    self::TYPE_DATE,
-                                    self::TYPE_CHECK,
-                                    self::TYPE_CUSTOM,
-                                    self::TYPE_PERCENT
-                                    )))
+                (!isset($this->type[$t]) or
+                    !in_array($this->type[$t][0], array(
+                                        self::TYPE_ARRAY,
+                                        self::TYPE_IMAGE,
+                                        self::TYPE_FUNCTION,
+                                        self::TYPE_DATE,
+                                        self::TYPE_CHECK,
+                                        self::TYPE_CUSTOM,
+                                        self::TYPE_PERCENT
+                                        ))))
             {
-                if ($this->filter['Column'] == $t and !empty($this->filter['Value']))
+                if ($this->filter and $this->filter['Column'] == $t and !empty($this->filter['Value']))
                 {
                     $filter_display = 'block';
                     $filter_value = $this->filter['Value'];
